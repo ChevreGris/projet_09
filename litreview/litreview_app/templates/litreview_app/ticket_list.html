@@ -1,0 +1,13 @@
+{% extends 'litreview_app/base.html' %}
+
+{% block content %}
+
+<h1>Tickets :</h1>
+<input type="button" onclick="window.location.href = 'http://127.0.0.1:8000/tickets/add/' " value="Créer un ticket">
+<ul>
+    {% for ticket in tickets %}
+    <li><a href="{% url 'ticket_detail' ticket.id %}">{{ ticket.name }}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

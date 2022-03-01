@@ -1,0 +1,12 @@
+{% load static %}
+
+<html>
+    <head><title>LIT Review</title></head>
+    <link rel="stylesheet" href="{% static 'litreview_app/styles.css' %}" />
+    <body>
+        <nav>
+            <p>LIT Review</p>
+        </nav>
+        {% block content %}{% endblock %}
+    </body>     
+</html>
