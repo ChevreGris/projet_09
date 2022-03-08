@@ -4,22 +4,26 @@ from django.contrib.auth.decorators import login_required
 from litreview_app.models import Ticket
 from authentication_app.forms import TicketForm
 
+
 @login_required
 def home(request):
     return render(request, 'home.html')
 
+@login_required
 def ticket_list(request):
    tickets = Ticket.objects.all()
    return render(request,
            'litreview_app/ticket_list.html',
            {'tickets': tickets})
 
+@login_required
 def ticket_detail(request, id):
   ticket = Ticket.objects.get(id=id)
   return render(request,
           'litreview_app/ticket_detail.html',
           {'ticket': ticket})
 
+@login_required
 def ticket_create(request):
     if request.method == 'POST':
         form = TicketForm(request.POST)
@@ -37,6 +41,7 @@ def ticket_create(request):
             'litreview_app/ticket_create.html',
             {'form': form})
 
+@login_required
 def ticket_update(request, id):
     ticket = Ticket.objects.get(id=id)
 
@@ -54,6 +59,7 @@ def ticket_update(request, id):
                 'litreview_app/ticket_update.html',
                 {'form': form})
 
+@login_required
 def ticket_delete(request, id):
     ticket = Ticket.objects.get(id=id)  # nécessaire pour GET et pour POST
 

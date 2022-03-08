@@ -1,4 +1,5 @@
 {% extends 'authentication_app/base.html' %}
 {% block content %}
     <p>Vous êtes connecté !</p>
+    <a href="{% url 'ticket_list' %}">Voir les tickets</a>
 {% endblock content %}
