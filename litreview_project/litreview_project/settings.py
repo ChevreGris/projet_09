@@ -130,3 +130,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'authentication_app.User'
 
 LOGIN_URL = 'login'
+
+MEDIA_URL = '/ticket_img/'

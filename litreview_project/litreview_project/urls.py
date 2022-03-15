@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
 import authentication_app.views
 import litreview_app.views
@@ -26,8 +28,15 @@ urlpatterns = [
     path('home/', litreview_app.views.home, name='home'),
     path('signup', authentication_app.views.signup_page, name='signup'),
     path('tickets/', litreview_app.views.ticket_list, name='ticket_list'),
+    path('reviews/', litreview_app.views.review_list, name='review_list'),
     path('tickets/<int:id>/', litreview_app.views.ticket_detail, name='ticket_detail'),
+    path('review/<int:id>/', litreview_app.views.review_detail, name='review_detail'),
     path('tickets/add/', litreview_app.views.ticket_create, name='ticket_create'),
+    path('review/add/', litreview_app.views.review_create, name='review_create'),
     path('tickets/<int:id>/change/', litreview_app.views.ticket_update, name='ticket_update'),
     path('tickets/<int:id>/delete/', litreview_app.views.ticket_delete, name='ticket_delete'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

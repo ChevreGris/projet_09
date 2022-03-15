@@ -6,6 +6,7 @@
 <h2>{{ ticket.name }}</h2>
 
 <p>{{ ticket.description }}</p>
+<img src="{{ ticket.image.url }}"> 
 <a href="{% url 'ticket_list' %}">Retour à tous les tickets</a>
 
 {% endblock %}

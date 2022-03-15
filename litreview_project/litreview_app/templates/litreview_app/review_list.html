@@ -2,14 +2,13 @@
 
 {% block content %}
 
-<h1>Tickets :</h1>
+<h1>Critiques :</h1>
 <input type="button" onclick="window.location.href = 'http://127.0.0.1:8000/tickets/add/' " value="Créer un ticket">
 <input type="button" onclick="window.location.href = 'http://127.0.0.1:8000/review/add/' " value="Créer une critique">
 <ul>
-    {% for ticket in tickets %}
-    <li><a href="{% url 'ticket_detail' ticket.id %}">{{ ticket.name }}</a></li>
+    {% for review in reviews %}
+    <li><a href="{% url 'review_detail' review.id %}">{{ review.id }}</a></li>
     {% endfor %}
 </ul>
 <input type="button" onclick="window.location.href = 'http://127.0.0.1:8000/home/' " value="Home">
-
 {% endblock %}
