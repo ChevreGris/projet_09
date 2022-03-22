@@ -35,6 +35,7 @@ urlpatterns = [
     path('review/add/', litreview_app.views.review_create, name='review_create'),
     path('tickets/<int:id>/change/', litreview_app.views.ticket_update, name='ticket_update'),
     path('tickets/<int:id>/delete/', litreview_app.views.ticket_delete, name='ticket_delete'),
+    path('user/social', litreview_app.views.sub, name='user_social'),
 ]
 
 if settings.DEBUG:

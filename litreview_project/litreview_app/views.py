@@ -1,9 +1,10 @@
 from imp import IMP_HOOK
-import imp
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from litreview_app.models import Ticket, Review
-from authentication_app.forms import TicketForm, TicketReviewFrom
+from django.db import models
+from django.conf import settings
+from litreview_app.models import Ticket, Review, UserFollows
+from authentication_app.forms import TicketForm, TicketReviewFrom, SubForm
 
 
 @login_required
@@ -13,13 +14,6 @@ def home(request):
 @login_required
 def ticket_list(request):
    tickets = Ticket.objects.filter(user=request.user)
-   return render(request,
-           'litreview_app/ticket_list.html',
-           {'tickets': tickets})
-
-@login_required
-def ticket_list(request):
-   tickets = Ticket.objects.all()
    return render(request,
            'litreview_app/ticket_list.html',
            {'tickets': tickets})
@@ -43,7 +37,7 @@ def ticket_create(request):
             return redirect('ticket_detail', ticket.id)
         #import pdb; pdb.set_trace()
     else:
-        form = TicketForm()
+        form = TicketForm(user=request.user)
 
     return render(request,
             'litreview_app/ticket_create.html',
@@ -115,3 +109,27 @@ def review_detail(request, id):
     return render(request,
           'litreview_app/review_detail.html',
           {'review': review})
+
+
+@login_required
+def sub(request):
+    if request.method == 'POST':
+
+        followed_user = UserFollows.objects.filter(user=2)#mettre a la place du 2 l'utilisater connecté.
+        following_user = UserFollows.objects.filter(followed_user=2)#mettre a la place du 2 l'utilisater connecté.
+        #faire passer les deux variables via la vue
+        
+        form = SubForm(request.POST, request.FILES)
+        if form.is_valid():
+            UserFollows.objects.create(user=request.user, followed_user=form.cleaned_data['search'])
+            return redirect('user_social')
+    else:
+        form = SubForm()
+
+    return render(request,
+            'litreview_app/user_social.html',
+            {'form': form})
+
+
+
+

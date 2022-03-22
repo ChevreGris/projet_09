@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authentication_app',
     'litreview_app',
+    'django_extensions',
 
 ]
 

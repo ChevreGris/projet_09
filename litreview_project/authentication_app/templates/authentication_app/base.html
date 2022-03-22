@@ -1,7 +1,23 @@
+{% load static %}
+
 <html>
     <head>
+        <link rel="stylesheet" href="{% static 'authentication_app/style.css' %}"/>
         <title>LitReview</title>
     </head>
+
+    <header>
+      <div class="menu">
+        <nav>
+          <ul>
+            <li><a href="http://127.0.0.1:8000/user/social">Flux</a></li>
+            <li><a href="http://127.0.0.1:8000/user/social">Posts</a></li>
+            <li><a href="http://127.0.0.1:8000/user/social">Abonnements</a></li>
+            <li><a href="{% url 'logout' %}">Se déconnecter</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
     <body>
         <h1>LitReview</h1>

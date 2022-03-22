@@ -1,0 +1,32 @@
+{% extends 'authentication_app/base.html' %}
+
+{% block content %}
+
+<h1>Rechercher un utilisateur : </h1>
+
+<form action="" method="post" novalidate enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Envoyer">
+</form>
+
+<ul>
+  {% for u in followed_user %}
+  <p>{{ u.followed_user.username }}</p>
+  {% endfor %}
+</ul>
+
+<ul>
+  {% for u in following_user %}
+  <p>{{ u.followed_user.username }}</p>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'ticket_list' %}">Retour à tous les tickets</a>
+
+{% endblock %}
+
+
+
+
+
