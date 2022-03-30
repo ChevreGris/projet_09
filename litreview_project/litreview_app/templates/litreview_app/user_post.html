@@ -1,0 +1,18 @@
+{% extends 'authentication_app/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<h1>Mes posts :</h1>
+
+{% for post in posts %}
+    {% if post.content_type == 'TICKET' %}
+        {% include 'litreview_app/ticket_HTML.html' %}
+    {% elif post.content_type == 'REVIEW' %}
+        {% include 'litreview_app/review_HTML.html' %}
+        {% endif %}    
+{% endfor %}
+
+{% endblock %}
+
+

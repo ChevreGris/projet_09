@@ -32,10 +32,13 @@ urlpatterns = [
     path('tickets/<int:id>/', litreview_app.views.ticket_detail, name='ticket_detail'),
     path('review/<int:id>/', litreview_app.views.review_detail, name='review_detail'),
     path('tickets/add/', litreview_app.views.ticket_create, name='ticket_create'),
+    path('tickets/<int:id>/add/review', litreview_app.views.ticket_add_review, name='ticket_add_review'),
     path('review/add/', litreview_app.views.review_create, name='review_create'),
     path('tickets/<int:id>/change/', litreview_app.views.ticket_update, name='ticket_update'),
     path('tickets/<int:id>/delete/', litreview_app.views.ticket_delete, name='ticket_delete'),
+    path('user', litreview_app.views.user_post, name='user_post'),
     path('user/social', litreview_app.views.sub, name='user_social'),
+    path('flux', litreview_app.views.flux, name='flux'),
 ]
 
 if settings.DEBUG:

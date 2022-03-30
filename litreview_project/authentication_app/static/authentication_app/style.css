@@ -67,3 +67,35 @@ nav a::before {
 nav a:hover::before{
     width: 100%;
 }
+
+.item {
+    position: static;
+    width: 50%;
+    border: solid;
+    background-color: rgb(192, 211, 247);
+    padding: 1em;
+    margin: 2em auto;
+}
+
+img{
+    width: 50%;
+}
+
+.item_review_ticket{
+    border: solid 2px;
+    padding: 1em;
+    background-color: rgb(233, 236, 241);
+}
+
+.item_ticket{
+    position: static;
+    width: 50%;
+    border: solid;
+    background-color: rgb(233, 236, 241);
+    padding: 1em;
+    margin: 2em auto;
+}
+
+.button{
+    margin: 1em 10em;
+}

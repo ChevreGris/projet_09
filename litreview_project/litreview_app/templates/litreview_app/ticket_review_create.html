@@ -1,0 +1,20 @@
+{% extends 'authentication_app/base.html' %}
+
+{% block content %}
+
+<p>ticket id : {{ ticket.id }}</p>
+<div class="item_ticket">
+  <h2>{{ ticket.name }} 's description :</h2>
+  <p>Titre : {{ ticket.name}}</p>
+  <p>Description : {{ ticket.description }}</p>
+  <img src="{{ ticket.image.url }}">
+</div>
+
+<form action="" method="post" novalidate enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Envoyer">
+</form>
+<a href="{% url 'ticket_list' %}">Retour à tous les tickets</a>
+
+{% endblock %}

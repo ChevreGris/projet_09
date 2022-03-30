@@ -10,8 +10,8 @@
       <div class="menu">
         <nav>
           <ul>
-            <li><a href="http://127.0.0.1:8000/user/social">Flux</a></li>
-            <li><a href="http://127.0.0.1:8000/user/social">Posts</a></li>
+            <li><a href="http://127.0.0.1:8000/flux">Flux</a></li>
+            <li><a href="http://127.0.0.1:8000/user">Posts</a></li>
             <li><a href="http://127.0.0.1:8000/user/social">Abonnements</a></li>
             <li><a href="{% url 'logout' %}">Se déconnecter</a></li>
           </ul>
@@ -20,7 +20,6 @@
     </header>
 
     <body>
-        <h1>LitReview</h1>
         {% block content %}{% endblock content %}
         {%  if user.is_authenticated %}
             <p>Vous êtes connecté en tant que {{ request.user }}. <a href="{% url 'logout' %}">Se déconnecter</a></p>

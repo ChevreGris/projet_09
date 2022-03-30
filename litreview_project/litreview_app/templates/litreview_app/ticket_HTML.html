@@ -1,0 +1,11 @@
+<div class="item_ticket">
+    <h2>{{ post.name }} 's description :</h2>
+    <p>Titre : {{ post.name}}</p>
+    <p>Description : {{ post.description }}</p>
+    <img src="{{ post.image.url }}">
+    <div>
+        <a class="button" href="tickets/{{ post.id }}/add/review">Créer une critique</a>
+        <a class="button" href="tickets/{{ post.id }}/change/">Modifier le ticket</a>
+        <a class="button" href="tickets/{{ post.id }}/delete">Supprimer le ticket</a>
+    </div>
+</div>

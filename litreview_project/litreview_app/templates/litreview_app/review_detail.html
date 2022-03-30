@@ -1,15 +1,18 @@
 {% extends 'authentication_app/base.html' %}
 
 {% block content %}
-<h2>{{ review.ticket.name }} 's description :</h2>
-<p>Titre : {{ review.ticket.name}}</p>
-<p>Description : {{ review.ticket.description }}</p>
-<img src="{{ review.ticket.image.url }}"> 
-<p>----------------------------------------------------</p>
-<p>Note : {{ review.rating }}/5</p>
-<p>Sous Titre : {{ review.headline }}</p>
-<p>Critique : {{ review.body }}</p>
-<p>Auteur : {{ review.user }}</p>
-<a href="{% url 'review_list' %}">Retour à tous les tickets</a>
+{% load static %}
 
+<div class="item"> 
+    <h2>{{ review.ticket.name }} 's description :</h2>
+    <p>Titre : {{ review.ticket.name}}</p>
+    <p>Description : {{ review.ticket.description }}</p>
+    <img src="{{ review.ticket.image.url }}"> 
+    <p>----------------------------------------------------</p>
+    <p>Note : {{ review.rating }}/5</p>
+    <p>Sous Titre : {{ review.headline }}</p>
+    <p>Critique : {{ review.body }}</p>
+    <p>Auteur : {{ review.user }}</p>
+    <a href="{% url 'review_list' %}">Retour à tous les tickets</a>
+<div\>
 {% endblock %}

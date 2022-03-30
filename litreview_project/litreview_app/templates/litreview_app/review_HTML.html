@@ -1,0 +1,17 @@
+<div class="item"> 
+    <div class="item_review_ticket">
+        <h2>{{ post.ticket.name }} 's description :</h2>
+        <p>Titre : {{ post.ticket.name}}</p>
+        <p>Description : {{ post.ticket.description }}</p>
+        <img src="{{ post.ticket.image.url }}">
+    </div>
+    <h2>{{ post.user }}'s critique of {{ post.ticket.name }} :</h2>
+    <p>Note : {{ post.rating }}/5</p>
+    <p>Sous Titre : {{ post.headline }}</p>
+    <p>Critique : {{ post.body }}</p>
+    <p>Auteur : {{ post.user }}</p>
+    <div>
+        <a class="button" href="reviews/{{ post.id }}/change/">Modifier la critique</a>
+        <a class="button" href="reviews/{{ post.id }}/delete">Supprimer la critique</a>
+    </div>
+</div>

@@ -9,7 +9,7 @@ class Ticket(models.Model):
     image = models.ImageField(upload_to='ticket_img')
     user = models.ForeignKey(
         to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-
+    time_created = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return f'{self.name}'
 

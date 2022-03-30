@@ -9,16 +9,16 @@
   {{ form.as_p }}
   <input type="submit" value="Envoyer">
 </form>
-
+<h2>followed_user</h2>
 <ul>
   {% for u in followed_user %}
   <p>{{ u.followed_user.username }}</p>
   {% endfor %}
 </ul>
-
+<h2>following_user</h2>
 <ul>
   {% for u in following_user %}
-  <p>{{ u.followed_user.username }}</p>
+  <p>{{ u.user.username }}</p>
   {% endfor %}
 </ul>
 
