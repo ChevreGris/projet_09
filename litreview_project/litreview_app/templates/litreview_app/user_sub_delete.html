@@ -1,0 +1,14 @@
+{% extends 'authentication_app/base.html' %}
+
+{% block content %}
+
+<h1>Ne plus suivre l'utilisateur?</h1>
+
+<p>Etes-vous sûr de vouloir supprimer l'utilisateur : {{ user.followed_user.username }} ?</p>
+
+<form action="" method="post">
+{% csrf_token %}
+<input type="submit" value="Supprimer">
+</form>
+<a class="button" href='http://127.0.0.1:8000/user/social'>Retour</a>
+{% endblock %}

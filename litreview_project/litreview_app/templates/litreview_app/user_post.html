@@ -4,6 +4,8 @@
 {% load static %}
 
 <h1>Mes posts :</h1>
+<a class="button" href="http://127.0.0.1:8000/tickets/add">Demender une critique</a>
+<a class="button" href="http://127.0.0.1:8000/review/add">Créer une critique</a>
 
 {% for post in posts %}
     {% if post.content_type == 'TICKET' %}

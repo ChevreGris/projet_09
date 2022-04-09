@@ -4,12 +4,14 @@
 {% load static %}
 
 <h1>Mon flux :</h1>
+<a class="button" href="http://127.0.0.1:8000/tickets/add">Demender une critique</a>
+<a class="button" href="http://127.0.0.1:8000/review/add">Créer une critique</a>
 
 {% for post in posts %}
     {% if post.content_type == 'TICKET' %}
-        {% include 'litreview_app/ticket_HTML.html' %}
+        {% include 'litreview_app/flux_ticket_HTML.html' %}
     {% elif post.content_type == 'REVIEW' %}
-        {% include 'litreview_app/review_HTML.html' %}
+        {% include 'litreview_app/flux_review_HTML.html' %}
         {% endif %}    
 {% endfor %}
 

@@ -1,5 +1,10 @@
-{% extends 'authentication_app/base.html' %}
-{% block content %}
+<html>
+    {% load static %}
+    <head>
+        <link rel="stylesheet" href="static/authentication_app/style.css"/>
+    </head>
+    
+    <body>
     <h2>Inscription</h2>
     {% if form.errors %}
         {{ form.errors }}
@@ -9,4 +14,5 @@
         {% csrf_token %}
         <button type="submit" >S’inscrire</button>
     </form>
-{% endblock content %}
+    </body>
+</html>

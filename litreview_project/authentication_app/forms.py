@@ -8,10 +8,12 @@ class LoginForm(forms.Form):
     username = forms.CharField(max_length=63, label='Nom d’utilisateur')
     password = forms.CharField(max_length=63, widget=forms.PasswordInput, label='Mot de passe')
 
+
 class SigupForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = get_user_model()
         fields = ['username', 'email', 'first_name', 'last_name']
+
 
 class TicketForm(forms.ModelForm):
     class Meta:
@@ -21,10 +23,11 @@ class TicketForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user')
         super().__init__(*args, **kwargs)
-    
+
     def save(self, *args, **kwargs):
         self.instance.user = self.user
         return super().save(*args, **kwargs)
+
 
 class TicketReviewFrom(forms.ModelForm):
     review_title = forms.CharField(max_length=63, label='title')
@@ -34,7 +37,7 @@ class TicketReviewFrom(forms.ModelForm):
     class Meta:
         model = Ticket
         fields = ['name', 'description', 'image']
-    
+
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user')
         super().__init__(*args, **kwargs)
@@ -42,23 +45,23 @@ class TicketReviewFrom(forms.ModelForm):
     def save(self, *args, **kwargs):
         self.instance.user = self.user
         ticket = super().save(*args, **kwargs)
-        Review.objects.create(ticket=ticket, headline=self.cleaned_data['review_title'], 
-                             rating=self.cleaned_data['review_note'], 
-                             body=self.cleaned_data['review_coment'],
-                             user=self.user)
+        Review.objects.create(ticket=ticket, headline=self.cleaned_data['review_title'],
+                              rating=self.cleaned_data['review_note'],
+                              body=self.cleaned_data['review_coment'],
+                              user=self.user)
         return ticket
 
+
 class ReviewForTicketFrom(forms.ModelForm):
-    
     class Meta:
         model = Review
         fields = ['rating', 'headline', 'body']
-    
+
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user')
         self.ticket = kwargs.pop('ticket')
         super().__init__(*args, **kwargs)
-    
+
     def save(self, *args, **kwargs):
         self.instance.user = self.user
         self.instance.ticket = self.ticket
@@ -77,9 +80,8 @@ class SubForm(forms.Form):
         data = self.cleaned_data['search']
         if User.objects.filter(username=data).exists():
             user = User.objects.get(username=data)
-        else : 
+        else:
             raise forms.ValidationError("username not found.")
         if UserFollows.objects.filter(user=self.user, followed_user__username=data).exists():
             raise forms.ValidationError("username already followed.")
-            
         return user

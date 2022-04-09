@@ -9,20 +9,18 @@
   {{ form.as_p }}
   <input type="submit" value="Envoyer">
 </form>
-<h2>followed_user</h2>
+<h2>Utilisateur que vous suivés:</h2>
 <ul>
   {% for u in followed_user %}
-  <p>{{ u.followed_user.username }}</p>
+  <p>{{ u.followed_user.username }}<a class="button" href="{{ u.id }}/delete">Supprimer</a></p>
   {% endfor %}
 </ul>
-<h2>following_user</h2>
+<h2>Utilisateur qui vous suivent:</h2>
 <ul>
   {% for u in following_user %}
   <p>{{ u.user.username }}</p>
   {% endfor %}
 </ul>
-
-<a href="{% url 'ticket_list' %}">Retour à tous les tickets</a>
 
 {% endblock %}
 

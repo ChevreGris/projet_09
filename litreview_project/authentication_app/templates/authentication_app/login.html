@@ -1,16 +1,18 @@
+<!DOCTYPE html>
 <html>
     {% load static %}
-    <head>
-        <link rel="stylesheet" href="static/authentication_app/style.css"/>
-    </head>
+    <link rel="stylesheet" href="static/authentication_app/style_login.css"/>
 
     <body>
-        <p>{{ message }}</p>
-        <form method="post">
-            {{ form.as_p }}
-            {% csrf_token %}
-            <button type="submit" >Se connecter</button>
-        </form>
-        <p>Pas encore membre ? <a href="{% url 'signup' %}">Inscrivez-vous maintenant !</a></p>
+        <div class="login">
+            <form method="post">
+                {{ form.as_p }}
+                {% csrf_token %}
+                <button class="button" type="submit" >Se connecter</button>
+            </form>
+        </div>
+        <div class="signup">
+            <p>Pas encore membre ? <a href="{% url 'signup' %}">Inscrivez-vous maintenant !</a></p>
+        </div>
     </body>
 </html>

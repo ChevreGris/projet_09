@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+body, head {
+    font-family: 'Montserrat';
+}
+
+.image {
+    position: absolute;
+}
+
+.login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.button {
+    margin: auto;
+}
+
+.signup{
+    position: absolute;
+    bottom: 10px;
+}
